@@ -16,109 +16,144 @@
         }
 
         .container {
-            background-color: white;
+            background-color: #1e1e2e;
             text-align: center;
             max-width: 300px;
             width: 95%;
             margin: auto;
-            max-height: 400px;
-            border-radius: 5px;
+            border-radius: 16px;
             padding: 20px;
 
         }
 
-        .btn {
+        .btn,
+        .btnn,
+        .btn-sci {
             background-color: rgb(224, 224, 126);
-            border-radius: 5px;
-            border: 2px solid black;
+            border-radius: 8px;
+            border: none;
             padding: 5px 10px;
-            width: 50px;
+            width: 70px;
             font-size: x-large;
             text-align: center;
             margin-bottom: 10px;
+            cursor: pointer;
         }
 
-        .btnb {
-            background-color: rgb(152, 152, 220);
-            border-radius: 5px;
-            border: 2px solid black;
-            padding: 5px 10px;
-            width: 50px;
-            font-size: x-large;
-            text-align: center;
-            margin-bottom: 10px;
+        .btn:hover,
+        .btnn:hover .btn-sci:hover {
+            background-color: rgb(240, 240, 100);
         }
 
-        .btnn {
-            background-color: rgb(224, 224, 126);
-            border-radius: 5px;
-            border: 2px solid black;
-            padding: 5px 10px;
-            width: 50px;
-            font-size: x-large;
-            text-align: center;
-            margin-bottom: 10px;
-        }
-
-        .btnbl {
-            background-color: rgb(152, 152, 220);
-            border-radius: 5px;
-            border: 2px solid black;
-            padding: 5px 10px;
-            width: 50px;
-            font-size: x-large;
-            text-align: center;
-            margin-bottom: 10px;
-        }
-
+        .btnbl,
+        .btnb,
         .btnblu {
             background-color: rgb(152, 152, 220);
-            border-radius: 5px;
-            border: 2px solid black;
+            border-radius: 8px;
+            border: none;
             padding: 5px 10px;
-            width: 50px;
+            width: 70px;
             font-size: x-large;
             text-align: center;
             margin-bottom: 10px;
+            cursor: pointer;
+        }
+
+        .btnbl:hover,
+        .btnb:hover,
+        .btnblu:hover {
+            background-color: rgb(170, 170, 235);
         }
 
         .btnred {
             background-color: rgb(203, 22, 22);
-            border-radius: 5px;
-            border: 2px solid black;
+            border-radius: 8px;
+            border: none;
             padding: 5px 10px;
-            width: 50px;
+            width: 70px;
             font-size: x-large;
             text-align: center;
             margin-bottom: 10px;
+            cursor: pointer;
+            color: white;
+        }
+
+        .btnred:hover {
+            background-color: rgb(230, 40, 40);
         }
 
         .container4 {
             display: flex;
             justify-content: center;
-
-        }
-
-        .enter {
-            background-color: rgb(29, 139, 47);
-            border-radius: 5px;
-            border: 2px solid black;
-            font-size: x-large;
-            padding: 5px 50px;
         }
 
         input {
-            background-color: #f8f8f8;
+            background-color: #2a2a3e;
+            color: white;
             width: 100%;
             box-sizing: border-box;
             margin-bottom: 10px;
-            height: 40px;
+            height: 50px;
             border-radius: 10px;
-            box-shadow: inset rgb(34, 31, 31);
+            border: none;
             text-align: right;
             font-size: x-large;
-
+            padding-right: 10px;
         }
+
+        .history {
+            border-radius: 10px;
+            text-align: right;
+            background-color: #2a2a3e;
+            color: rgb(255, 255, 255);
+            height: 40px;
+            width: 100%;
+            box-sizing: border-box;
+            margin-bottom: 10px;
+            font-size: large;
+            border: none;
+            padding-right: 10px;
+        }
+
+        .btnblue {
+            background-color: green;
+            border-radius: 8px;
+            border: none;
+            padding: 5px 10px;
+            width: 70px;
+            font-size: x-large;
+            text-align: center;
+            margin-bottom: 10px;
+            cursor: pointer;
+        }
+
+        .btnblue:hover {
+            background-color: rgb(40, 160, 60);
+        }
+
+        #scientific {
+            display: none;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+            margin-bottom: 10px;
+            background-color: #1e1e2e;
+            padding: 0;
+            border-radius: 0;
+            justify-items: center;
+        }
+
+        #scientific button {
+            background-color: rgb(224, 224, 126);
+            border-radius: 8px;
+            border: none;
+            padding: 5px 10px;
+            width: 70px;
+            height: 40px;
+            font-size: x-large;
+            text-align: center;
+            cursor: pointer;
+        }
+
 
         @media (max-width: 350px) {
 
@@ -143,39 +178,47 @@
     <div class="main">
         <div class="container">
             <div class="input">
-                <input type="text" id="display">
+                <input class="history" type="text" id="result" , placeholder="history">
+                <input class="data" type="text" id="input" value="0">
             </div>
-            <button class="btn" onclick="press('+')">+</button>
-            <button class="btn" onclick="press('-')">-</button>
-            <button class="btn" onclick="press('*')">*</button>
-            <button class="btn" onclick="press('/')">/</button>
-            <div class="container-1">
-                <button class="btnn" onclick="power('^')">^</button>
+            <div id="scientific" style="display: none;">
+                <button onclick="press('Math.sqrt(')">√</button>
+                <button onclick="press('**')">^</button>
+                <button onclick="press('Math.PI')">π</button>
+            </div>
+            <div class="container-button">
+                <button class="btn-sci" onclick="toggleScientific()">f(X)</button>
                 <button class="btnn" onclick="press('%')">%</button>
-                <button class="btnn" onclick="sqrt()">&radic;</button>
-                <button class="btnn" onclick="backspace()">&#9003</button>
+                <button class="btnn" onclick="backspace()" style="font-size:larger;">&#9003;</button>
+                <button class="btnred" onclick="ClearScreen( )">C</button>
+
             </div>
-            <div class="container1">
+            <div class="container-buttons">
+                <button class="btn" onclick="press('+')">+</button>
+                <button class="btn" onclick="press('-')">-</button>
+                <button class="btn" onclick="press('*')">*</button>
+                <button class="btn" onclick="press('/')">/</button>
+            </div>
+
+            <div class="container-numbers">
                 <button class="btnb" onclick="press('7')">7</button>
                 <button class="btnb" onclick="press('8')">8</button>
                 <button class="btnb" onclick="press('9')">9</button>
+
                 <button class="btnb" onclick="press('4')">4</button>
-            </div>
-            <div class="container2">
                 <button class="btnbl" onclick="press('5')">5</button>
                 <button class="btnbl" onclick="press('6')">6</button>
+
                 <button class="btnbl" onclick="press('1')">1</button>
                 <button class="btnbl" onclick="press('2')">2</button>
-            </div>
-            <div class="container3">
                 <button class="btnblu" onclick="press('3')">3</button>
+
                 <button class="btnblu" onclick="press('0')">0</button>
                 <button class="btnblu" onclick="press('.')">.</button>
-                <button class="btnred" onclick="ClearScreen( )">C</button>
+                <button class="btnblue" onclick="solve( )">=</button>
+
             </div>
-            <div class="container4">
-                <button class="enter" onclick="solve( )">=</button>
-            </div>
+
         </div>
     </div>
 
